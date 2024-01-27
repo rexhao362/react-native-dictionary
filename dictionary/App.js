@@ -1,19 +1,52 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar'
+import { useState } from 'react'
+import { Button, SafeAreaView, SectionList, Text, TextInput, View } from 'react-native'
+import {NavigationContainer} from '@react-navigation/native'
+const styles = require('./components/src/styles')
+const Definition = require('./components/src/dictionary_req')
+const displayDefSections = require('./components/app_functions');
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    const [word, setWord] = useState('')
+    const [defWord, setDefWord] = useState({})
+    const [definitions, setDefinitions] = useState([])
+    const [phonetic, setPhonetic] = useState('')
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    const getDefinitions = () => {
+        setDefWord(new Definition(word)).then(() => {
+            setDefinitions(defWord.def)
+            setPhonetic(defWord.phonetic)
+        })
+    }
+
+    return (
+        <NavigationContainer>
+        <View style={styles.container}>
+            <StatusBar style="auto" />
+            <SafeAreaView>
+                <View style={styles.textBox}>
+                    <TextInput
+                        style={{ flex: 5 }}
+                        placeholder="Search"
+                        onChangeText={newWord => setWord(newWord)}
+                        defaultValue={word}
+                    />
+                    <Button
+                        style={{ flex: 1 }}
+                        onPress={getDefinitions()}
+                    />
+                </View>
+                <Text>
+                    {word}
+                </Text>
+                <Text>
+                    {phonetic}
+                </Text>
+                <SectionList>
+                    {displayDefSections(definitions)}
+                </SectionList>
+            </SafeAreaView>
+        </View>
+        </NavigationContainer>
+    )
+}
