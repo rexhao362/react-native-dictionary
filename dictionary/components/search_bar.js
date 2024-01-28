@@ -5,7 +5,7 @@ const searchBar = () => {
         <View>
             <TextInput
                 style={{ flex: 5 }}
-                placeholder="Search"
+                placeholder="Search..."
                 onChangeText={newWord => setWord(newWord)}
                 defaultValue={word}
             />

@@ -42,9 +42,9 @@ export default function App() {
                 <Text>
                     {phonetic}
                 </Text>
-                <SectionList>
+                <View>
                     {displayDefSections(definitions)}
-                </SectionList>
+                </View>
             </SafeAreaView>
         </View>
         </NavigationContainer>
