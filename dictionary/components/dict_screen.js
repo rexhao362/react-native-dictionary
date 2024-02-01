@@ -7,8 +7,8 @@ const DictScreen = ({ route, navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text>{JSON.stringify(word)}</Text>
-            <Text>{JSON.stringify(phonetic)}</Text>
+            <Text style={styles.word}>{word}</Text>
+            <Text style={styles.phonetic}>{phonetic}</Text>
             {displayDefSections(definitions)}
             <Button
                 title="Go back"

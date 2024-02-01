@@ -11,7 +11,7 @@ const displayDefSections = definitions => {
     return (
         <SectionList
             sections={array}
-            renderItem={({ item }) => <Text style={styles.item}>{item}</Text>}
+            renderItem={({ item }) => <Text style={styles.definition}>{item}</Text>}
             renderSectionHeader={({ section }) => (
                 <Text style={styles.sectionHeader}>{section.title}</Text>
             )}

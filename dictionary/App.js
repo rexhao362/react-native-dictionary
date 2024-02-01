@@ -1,8 +1,6 @@
 import { StatusBar } from 'expo-status-bar'
-import { SafeAreaView, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-const styles = require('./components/src/styles')
 
 const SearchScreen = require('./components/search_screen')
 const DictScreen = require('./components/dict_screen')
