@@ -6,6 +6,12 @@ const styles = require('./components/src/styles')
 const Definition = require('./components/src/dictionary_req')
 const displayDefSections = require('./components/app_functions');
 
+const searchScreen = require('./components/search_screen')
+
+const DictScreen = () => {
+
+}
+
 export default function App() {
     const [word, setWord] = useState('')
     const [defWord, setDefWord] = useState({})
@@ -24,18 +30,7 @@ export default function App() {
         <View style={styles.container}>
             <StatusBar style="auto" />
             <SafeAreaView>
-                <View style={styles.textBox}>
-                    <TextInput
-                        style={{ flex: 5 }}
-                        placeholder="Search"
-                        onChangeText={newWord => setWord(newWord)}
-                        defaultValue={word}
-                    />
-                    <Button
-                        style={{ flex: 1 }}
-                        onPress={getDefinitions()}
-                    />
-                </View>
+
                 <Text>
                     {word}
                 </Text>
