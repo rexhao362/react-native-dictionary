@@ -1,4 +1,4 @@
-import { Button, View } from 'react-native'
+import { Button, Text, View } from 'react-native'
 const styles = require('./src/styles')
 const displayDefSections = require('./app_functions')
 

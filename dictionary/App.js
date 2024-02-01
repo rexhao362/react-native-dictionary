@@ -11,22 +11,18 @@ export default function App() {
     const Stack = createNativeStackNavigator()
 
     return (
-        <View style={styles.container}>
+        <NavigationContainer>
             <StatusBar style="auto" />
-            <SafeAreaView>
-                <NavigationContainer>
-                    <Stack.Navigator>
-                        <Stack.Screen
-                            name="Search"
-                            component={SearchScreen}
-                        />
-                        <Stack.Screen
-                            name="Dictionary"
-                            component={DictScreen}
-                        />
-                    </Stack.Navigator>
-                </NavigationContainer>
-            </SafeAreaView>
-        </View>
+            <Stack.Navigator>
+                <Stack.Screen
+                    name="Search"
+                    component={SearchScreen}
+                />
+                <Stack.Screen
+                    name="Dictionary"
+                    component={DictScreen}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
     )
 }
