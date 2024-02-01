@@ -62,6 +62,6 @@ const example = async () => {
     console.log(test.phonetic)
 }
 
-example()
+// example()
 
 module.exports = newDictReq

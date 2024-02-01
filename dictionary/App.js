@@ -1,47 +1,32 @@
 import { StatusBar } from 'expo-status-bar'
-import { useState } from 'react'
-import { Button, SafeAreaView, SectionList, Text, TextInput, View } from 'react-native'
-import {NavigationContainer} from '@react-navigation/native'
+import { SafeAreaView, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 const styles = require('./components/src/styles')
-const Definition = require('./components/src/dictionary_req')
-const displayDefSections = require('./components/app_functions');
 
-const searchScreen = require('./components/search_screen')
-
-const DictScreen = () => {
-
-}
+const SearchScreen = require('./components/search_screen')
+const DictScreen = require('./components/dict_screen')
 
 export default function App() {
-    const [word, setWord] = useState('')
-    const [defWord, setDefWord] = useState({})
-    const [definitions, setDefinitions] = useState([])
-    const [phonetic, setPhonetic] = useState('')
-
-    const getDefinitions = () => {
-        setDefWord(new Definition(word)).then(() => {
-            setDefinitions(defWord.def)
-            setPhonetic(defWord.phonetic)
-        })
-    }
+    const Stack = createNativeStackNavigator()
 
     return (
-        <NavigationContainer>
         <View style={styles.container}>
             <StatusBar style="auto" />
             <SafeAreaView>
-
-                <Text>
-                    {word}
-                </Text>
-                <Text>
-                    {phonetic}
-                </Text>
-                <View>
-                    {displayDefSections(definitions)}
-                </View>
+                <NavigationContainer>
+                    <Stack.Navigator>
+                        <Stack.Screen
+                            name="Search"
+                            component={SearchScreen}
+                        />
+                        <Stack.Screen
+                            name="Dictionary"
+                            component={DictScreen}
+                        />
+                    </Stack.Navigator>
+                </NavigationContainer>
             </SafeAreaView>
         </View>
-        </NavigationContainer>
     )
 }
