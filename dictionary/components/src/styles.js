@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     word: {
         fontSize: 24,
         fontWeight: 'bold',
+        marginTop: 10,
         marginBottom: 10,
     },
     phonetic: {
@@ -37,14 +38,18 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         marginTop: 10,
+        marginLeft: 10,
         marginBottom: 5,
     },
     definition: {
         fontSize: 16,
+        marginLeft: 30,
+        marginRight: 10,
         marginBottom: 5,
         borderBottomWidth: 1,
         borderBottomColor: '#ccc',
         paddingBottom: 5,
+        textAlign: 'justify',
     },
 })
 
