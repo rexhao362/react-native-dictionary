@@ -19,7 +19,7 @@ class DictRequest {
                             : e.definition
                     )
             })
-            // get phonetic
+            // get phonetic - if else then if else
             this.phonetic = this.body.phonetic
                 ? this.body.phonetic
                 : this.body.phonetics.length > 0
@@ -44,6 +44,7 @@ const getResponse = async word => {
         else throw new Error('Something went wrong')
     } catch (error) {
         console.error(error)
+        // return {meanings: [{'Error': error}]}
     }
 }
 
@@ -51,7 +52,6 @@ const newDictReq = async word => {
     try {
         const res = new DictRequest(word)
         await res.init()
-        console.log(res.body);
         return {
             definitions: res.definitions,
             phonetic: res.phonetic,
@@ -60,11 +60,11 @@ const newDictReq = async word => {
 }
 
 const example = async () => {
-    const test = await newDictReq('naysayers')
+    const test = await newDictReq('example')
     console.log(test.definitions)
     console.log(test.phonetic)
 }
 
-example()
+// example()
 
 module.exports = newDictReq
