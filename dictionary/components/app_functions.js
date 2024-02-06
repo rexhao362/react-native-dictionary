@@ -3,15 +3,16 @@ import { SectionList, Text } from 'react-native'
 const styles = require('./src/styles')
 
 const displayDefSections = definitions => {
-    array = []
-    for (const [key, value] of Object.entries(definitions)) {
-        const section = { title: key, data: value }
-        array.push(section)
-    }
+    const array = Object.entries(definitions).map((key, value) => ({
+        title: key,
+        data: value,
+    }))
     return (
         <SectionList
             sections={array}
-            renderItem={({ item }) => <Text style={styles.definition}>{item}</Text>}
+            renderItem={({ item }) => (
+                <Text style={styles.definition}>{item}</Text>
+            )}
             renderSectionHeader={({ section }) => (
                 <Text style={styles.sectionHeader}>{section.title}</Text>
             )}
