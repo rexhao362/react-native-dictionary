@@ -4,7 +4,6 @@ class DictRequest {
         this.body = null
         this.definitions = {}
         this.phonetic = null
-        // this.init()
     }
 
     init = async () => {
@@ -44,7 +43,6 @@ const getResponse = async word => {
         else throw new Error('Something went wrong')
     } catch (error) {
         console.error(error)
-        // return {meanings: [{'Error': error}]}
     }
 }
 
